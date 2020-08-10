@@ -19,11 +19,13 @@ include('database_connection.php');
 
     <title>Email Filter</title>
 
-    <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href = "css/jquery-ui.css" rel = "stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="css/style.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -111,8 +113,71 @@ include('database_connection.php');
               <input class="input btn btn-success" type="submit" name="get_balance" value="BALANCE">
             </div>
             <div class="col-sm-4">
-              <input class="input btn btn-success" type="submit" name="get_balance" value="EMAIL">
-              <input class="input btn btn-success" type="submit" name="get_balance" value="SMS">
+              <!--Start Email Modal-->
+              <a href="#addEmailModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Email</span></a>
+              <div id="addEmailModal" class="modal fade">
+            		<div class="modal-dialog">
+            			<div class="modal-content">
+            				<form id="email_form">
+            					<div class="modal-header">
+            						<h4 class="modal-title">Send Email</h4>
+            						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            					</div>
+            					<div class="modal-body">
+                        <div class="form-group">
+            							<label>Recepient Email</label>
+            							<input type="email" id="email_u" name="email" class="form-control" required>
+            						</div>
+                        <div class="form-group">
+                          <label>Subject</label>
+                          <input type="text" id="subj_u" name="subject" class="form-control" required>
+                        </div>
+            						<div class="form-group">
+            							<label>Body</label>
+            							<textarea class="form-control" name="body" rows="8" cols="70"></textarea>
+            						</div>
+            					</div>
+            					<div class="modal-footer">
+            					    <input type="hidden" value="1" name="type">
+            						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+            						<button type="button" class="btn btn-success" id="btn-add">Add</button>
+            					</div>
+            				</form>
+            			</div>
+            		</div>
+            	</div>
+              <!--End Email Modal-->
+
+              <!--Start SMS Modal-->
+              <a href="#addSMSModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>SMS</span></a>
+              <div id="addSMSModal" class="modal fade">
+            		<div class="modal-dialog">
+            			<div class="modal-content">
+            				<form id="sms_form">
+            					<div class="modal-header">
+            						<h4 class="modal-title">Send SMS</h4>
+            						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            					</div>
+            					<div class="modal-body">
+            						<div class="form-group">
+            							<label>Recepient Phone Number</label>
+            							<input type="phone" id="phone" name="phone" class="form-control" required>
+            						</div>
+            						<div class="form-group">
+            							<label>Message</label>
+            							<textarea class="form-control" name="message" rows="8" cols="70"></textarea>
+            						</div>
+            					</div>
+            					<div class="modal-footer">
+            					    <input type="hidden" value="1" name="type">
+            						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+            						<button type="button" class="btn btn-success" id="btn-add">Add</button>
+            					</div>
+            				</form>
+            			</div>
+            		</div>
+            	</div>
+              <!--End SMS Modal-->
             </div>
             	<br />
             	<br />
@@ -126,6 +191,15 @@ include('database_connection.php');
 
 <script src="js/ajax.js"></script>
 
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
 </body>
 
 </html>
