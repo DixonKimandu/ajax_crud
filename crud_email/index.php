@@ -18,7 +18,8 @@ include('database_connection.php');
     <meta name="author" content="">
 
     <title>Email Filter</title>
-
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
   	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
